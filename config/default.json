@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://Andreas123:Andreas123@baitscore.tiasf.mongodb.net/<dbname>?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://Andreas123:Andreas123@baitscore.tiasf.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "testToken": "Secret Token"
 }
