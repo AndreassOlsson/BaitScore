@@ -1,11 +1,13 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const router = express.Router();
 const auth = require('../../middleware/auth');
+const { check, validationResult } = require('express-validator');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
-// @route   get api/profile/me
+// @route   GET api/profile/me
 // @desc    Get current users profile
 // @access  Private
 router.get('/me', auth, async (req, res) => {
@@ -25,5 +27,87 @@ router.get('/me', auth, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+// @route   POST api/profile
+// @desc    Get current users profile
+// @access  Private
+router.post(
+  '/',
+  [
+    auth,
+    [
+      check('species', 'Species is required').not().isEmpty(),
+      check('pbs', 'Pbs is required').not().isEmpty(),
+      check('favoriteLure', 'Favorite lure is required').not().isEmpty(),
+    ],
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty) {
+      return res.status(400).json({ errors: errors.array });
+    }
+    const {
+      city,
+      age,
+      species,
+      pbs,
+      favoriteLure,
+      bio,
+      youtube,
+      twitter,
+      facebook,
+      instagram,
+    } = req.body;
+
+    // Build profile object
+    const profileFields = {};
+    profileFields.user = req.user.id;
+    if (city) profileFields.city = city;
+    if (age) profileFields.age = age;
+    if (favoriteLure) profileFields.favoriteLure = favoriteLure;
+    if (bio) profileFields.bio = bio;
+    if (species) {
+      profileFields.species = species.split(',').map((specie) => specie.trim());
+    }
+    if (pbs) {
+      profileFields.pbs = pbs.split(',').map((pb) => pb.trim());
+    }
+    console.log(profileFields.species);
+
+    // Build social object
+    profileFields.social = {};
+    if (youtube) profileFields.social.youtube = youtube;
+    if (twitter) profileFields.social.twitter = twitter;
+    if (facebook) profileFields.social.facebook = facebook;
+    if (instagram) profileFields.social.instagram = instagram;
+
+    try {
+      // Update if a profile is found
+      let profile = await Profile.findOne({ user: req.user.id });
+
+      if (profile) {
+        // useFindAndModify : false is to avoid deprecationwarning
+        mongoose.set('useFindAndModify', false);
+        profile = await Profile.findOneAndUpdate(
+          { user: req.user.id },
+          { $set: profileFields },
+          { new: true }
+        );
+
+        return res.json(profile);
+      }
+
+      // Create if a profile is not found
+      profile = new Profile(profileFields);
+
+      await profile.save();
+      res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server errror');
+    }
+  }
+);
 
 module.exports = router;

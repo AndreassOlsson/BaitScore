@@ -13,11 +13,9 @@ const ProfileSchema = new mongoose.Schema({
   },
   species: {
     type: String,
-    required: true,
   },
-  pb: {
+  pbs: {
     type: String,
-    required: true,
   },
   favoriteLure: {
     type: String,
@@ -37,9 +35,6 @@ const ProfileSchema = new mongoose.Schema({
       type: String,
     },
     instagram: {
-      type: String,
-    },
-    fishbrain: {
       type: String,
     },
   },
