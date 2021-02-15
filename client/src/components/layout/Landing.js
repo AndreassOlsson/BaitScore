@@ -3,12 +3,13 @@ import React from 'react';
 const Landing = () => {
   return (
     <section className='landing'>
-      <div className='darkOverlay'>
-        <div className='landing-content'>
-          <h1 className='x-large'>BaitScore</h1>
+      <div>
+        <div className='landing-content linear-gradient rounded shadow'>
+          <div className='logo'></div>
           <p className='lead'>
-            A social network that brings fishermen together and lets users share
-            their favorite fishing stories, techniques and lures
+            BaitScore is a social network that brings all fishermen together and
+            lets users share their favorite fishing stories, techniques and
+            lures
           </p>
           <div className='buttons'>
             <a href='register.html' className='btn btn-primary'>
