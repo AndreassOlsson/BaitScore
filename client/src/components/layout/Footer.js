@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className='bg-dark'>
-      <div className='logo'></div>
+      <Link to='/'>
+        <div className='logo'></div>
+      </Link>
       <div>
         <a href='https://www.instagram.com/ande_o/'>
           <i className='fab fa-instagram'></i>ande_o

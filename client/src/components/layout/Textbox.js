@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Contentbox = (props) => {
+const Textbox = (props) => {
   return (
-    <div className='contentbox'>
+    <div className='textbox'>
       <h1>{props.header}</h1>
       <p>{props.text}</p>
       <img src={props.src} alt={props.alt} />
@@ -10,4 +10,4 @@ const Contentbox = (props) => {
   );
 };
 
-export default Contentbox;
+export default Textbox;
