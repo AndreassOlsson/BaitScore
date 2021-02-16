@@ -11,15 +11,17 @@ const App = () => (
     <div className='content'>
       <Navbar />
       <Landing />
-      <div className='content-cluster'>
+      <div className='content-cluster bg-shark'>
         <Contentbox
-          header='Header'
-          text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+          header='Find the best lures'
+          text='BaitScore hosts regular polls that allows members to vote on their favorite lures and thereby 
+          sheds light on the lures that are the most effective'
         />
         <Imgcontainer />
         <Contentbox
-          header='Header'
-          text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+          header='Learn from others'
+          text='BaitScore allows anglers to learn new fishing strategies from others by encouraging users to share their 
+          knowledge and stories on active discussion threads'
         />
       </div>
     </div>

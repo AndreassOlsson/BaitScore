@@ -61,7 +61,7 @@ h1 {
 
 p {
   font-size: 1.2rem;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.3px;
   font-weight: 500;
   color: white;
 }
@@ -96,6 +96,12 @@ footer {
 
 .bg-dark {
   background-color: var(--dark-color);
+}
+
+.bg-shark {
+  background-image: url('./img/pike-vector.svg');
+  background-size: cover;
+  background-position: bottom;
 }
 
 .shadow {
@@ -137,6 +143,8 @@ footer {
   background-size: cover;
   width: 120px;
   height: 40px;
+  position: relative;
+  top: 5px;
 }
 
 .logo-big {
@@ -156,28 +164,36 @@ footer {
 }
 
 .content-cluster {
+  overflow: auto;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0 4rem 0;
-}
-
-.contentbox {
-  flex-wrap: wrap;
-  flex: 0 1 1000px;
-  width: 80vw;
-  max-width: 450px;
-  min-height: 340px;
-  text-align: center;
-  margin: 2rem;
-  margin: 40px 80px;
+  padding: 80px 40px 80px 40px;
+  backdrop-filter: blur(5px);
 }
 
 .contentbox p,
 .contentbox h1 {
   color: black;
+}
+
+@media screen and (min-width: 1430px) {
+  .bg-shark {
+    padding-left: calc(100vw / 14);
+    padding-right: calc(100vw / 14);
+  }
+}
+
+.contentbox {
+  flex-wrap: wrap;
+  flex: 1 1 450px;
+  max-width: 450px;
+  max-height: 340px;
+  text-align: center;
+  margin: 2rem;
+  margin: auto;
 }
 
 /* --- COMPONENT-SPECIFIC STYLING --- */
