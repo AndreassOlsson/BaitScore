@@ -9,9 +9,7 @@ const Footer = () => {
           <i className='fab fa-instagram'></i>ande_o
         </a>
         <p>andreas.o.olsson@outlook.com</p>
-        <p className='copy-right'>
-          © 2021 Andreas Olsson. All rights reserved.
-        </p>
+        <p className='copyright'>© 2021 Andreas Olsson. All rights reserved.</p>
       </div>
     </footer>
   );

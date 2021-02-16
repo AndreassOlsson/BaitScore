@@ -1,3 +1,4 @@
+/* --- GLOBAL STYLING --- */
 :root {
   --primary-color: #17a2b8;
   --dark-color: rgb(20, 20, 20);
@@ -12,6 +13,10 @@
   padding: 0;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 html,
 body {
   height: 100%;
@@ -23,8 +28,6 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
-  color: #333;
 }
 
 .content {
@@ -51,49 +54,56 @@ li {
   padding: 0px 20px;
 }
 
+h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+p {
+  font-size: 1.2rem;
+  letter-spacing: 1.2px;
+  font-weight: 500;
+  color: white;
+}
+
+footer {
+  display: flex;
+  flex-shrink: 0;
+  text-align: center;
+  color: white;
+  min-height: 200px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 12px 0;
+}
+
+.x-large {
+  font-size: 3rem;
+  color: white;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
 .dark-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.815);
+  background-color: #726c98;
 }
 
 .bg-dark {
   background-color: var(--dark-color);
 }
 
-.bg-light-transparent {
-  background-color: rgba(248, 248, 248, 0.904);
-}
-
 .shadow {
   box-shadow: 50px 50px 50px rgba(255, 255, 255, 0.377);
 }
 
-.linear-gradient {
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    45deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.8) 66%,
-    rgba(230, 241, 255, 0.8) 100%
-  );
-}
-
 .rounded {
-  border-radius: 0 36px 0 36px;
-}
-
-.x-large {
-  font-size: 2.8rem;
-  font-family: 'Rock salt', cursive;
-  letter-spacing: 4px;
-}
-
-.noun {
-  color: #333;
+  border-radius: 32px;
 }
 
 .btn {
@@ -107,6 +117,7 @@ li {
   background-color: var(--primary-color);
   color: var(--light-color);
 }
+
 .btn-primary:hover {
   background-color: var(--light-color);
 }
@@ -115,6 +126,7 @@ li {
   background-color: var(--light-color);
   color: black;
 }
+
 .btn-light:hover {
   color: black;
 }
@@ -127,6 +139,14 @@ li {
   height: 40px;
 }
 
+.logo-big {
+  background-image: url(img/logo.png);
+  background-position: center center;
+  background-size: cover;
+  width: 180px;
+  height: 60px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -135,6 +155,33 @@ li {
   height: 10vh;
 }
 
+.content-cluster {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 4rem 0;
+}
+
+.contentbox {
+  flex-wrap: wrap;
+  flex: 0 1 1000px;
+  width: 80vw;
+  max-width: 450px;
+  min-height: 340px;
+  text-align: center;
+  margin: 2rem;
+  margin: 40px 80px;
+}
+
+.contentbox p,
+.contentbox h1 {
+  color: black;
+}
+
+/* --- COMPONENT-SPECIFIC STYLING --- */
+/* --- LANDING PAGE --- */
 .landing {
   display: flex;
   justify-content: center;
@@ -156,76 +203,36 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 320px;
-  width: 640px;
-  padding: 0 25px;
+  width: 100%;
+  height: 100%;
   text-align: center;
-  color: white;
-}
-
-.landing .logo {
-  width: 180px;
-  height: 60px;
+  backdrop-filter: brightness(50%);
 }
 
 .lead {
-  font-size: 1.2rem;
-  font-weight: 550;
-  letter-spacing: 1.3px;
-  margin: 1.5rem 0 2rem 0;
-  border-top: 2px solid var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
-  padding: 12px 0;
+  margin: 12px 0 36px 0;
+  max-width: 750px;
+  font-weight: 600;
   width: 80%;
-}
-
-footer {
-  display: flex;
-  flex-shrink: 0;
-  text-align: center;
   color: white;
-  min-height: 200px;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  padding: 12px 0;
 }
 
+.img-container {
+  background-image: url(img/mobile-vector.svg);
+  background-position: center center;
+  background-size: cover;
+  max-width: 450px;
+  width: 80vw;
+  max-height: 350px;
+  height: 70vh;
+}
+
+/* --- FOOTER --- */
 .fa-instagram {
   margin-right: 5px;
 }
 
-.copy-right {
+.copyright {
   width: 100vw;
   background-color: var(--primary-color);
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-.contentbox {
-  width: 28vw;
-  min-width: 300px;
-  text-align: center;
-  margin: 2rem;
-  color: black;
-}
-
-.contentbox h1 {
-  margin: 12px;
-}
-
-.contentbox p {
-  padding-left: 12px;
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
-.contentboxes {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem 0 4rem 0;
 }
