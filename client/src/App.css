@@ -81,6 +81,13 @@ footer {
   margin: 0;
 }
 
+.large {
+  font-size: 2.6rem;
+  color: black;
+  letter-spacing: 0px;
+  margin: 0;
+}
+
 .dark-overlay {
   position: absolute;
   top: 0;
@@ -140,7 +147,7 @@ footer {
   width: 120px;
   height: 40px;
   position: relative;
-  top: 6px;
+  top: 8px;
 }
 
 .logo-big {

@@ -1,11 +1,12 @@
 import React from 'react';
-import Textbox from '../layout/Textbox';
-import Imgcontainer from '../layout/Imgcontainer';
+import { Fragment } from 'react';
+import Textbox from '../components-within-components/Textbox';
+import Imgcontainer from '../components-within-components/Imgcontainer';
 import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
-    <section>
+    <Fragment>
       <section className='landing  dark-overlay'>
         <div>
           <div className='landing-content'>
@@ -39,7 +40,7 @@ const Landing = () => {
             knowledge and stories on active discussion threads'
         />
       </section>
-    </section>
+    </Fragment>
   );
 };
 
