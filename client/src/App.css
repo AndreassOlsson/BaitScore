@@ -108,7 +108,7 @@ footer {
 }
 
 .shadow {
-  box-shadow: 50px 50px 50px rgba(255, 255, 255, 0.377);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.377);
 }
 
 .rounded {
@@ -121,14 +121,19 @@ footer {
   border-radius: 16px;
   font-weight: bolder;
 }
+.btn:hover {
+  cursor: pointer;
+}
 
 .btn-primary {
   background-color: var(--primary-color);
   color: var(--light-color);
+  border: none;
 }
 
 .btn-primary:hover {
-  background-color: var(--light-color);
+  background-color: #29d8d8;
+  color: var(--light-color);
 }
 
 .btn-light {
@@ -138,6 +143,26 @@ footer {
 
 .btn-light:hover {
   color: black;
+}
+
+.link-primary {
+  color: var(--primary-color);
+}
+
+.lead {
+  margin: 12px 0 36px 0;
+  max-width: 750px;
+  font-weight: 600;
+  width: 80%;
+  text-align: center;
+}
+
+.black {
+  color: black;
+}
+
+.white {
+  color: white;
 }
 
 .logo {
@@ -198,6 +223,74 @@ footer {
   margin: 2rem;
 }
 
+.whole-screen {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.abstract-background {
+  background-image: url('img/abstract-vector.svg');
+}
+
+.abstract-background-2 {
+  background-image: url('img/abstract-vector-2.svg');
+}
+
+.content-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--light-color);
+  padding: 48px 48px;
+}
+
+form.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='password_confirm'] {
+  border: none;
+  border-bottom: 2px solid black;
+  width: 320px;
+  height: 40px;
+  margin: 6px 0;
+  font-size: 18px;
+  font-weight: 550;
+}
+
+input[type='submit'],
+.btn-larger {
+  margin: 20px;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 1.1rem;
+  font-family: 550;
+}
+
+::placeholder {
+  font-weight: 500;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+}
+
 /* --- COMPONENT-SPECIFIC STYLING --- */
 /* --- LANDING PAGE --- */
 .landing {
@@ -227,14 +320,6 @@ footer {
   backdrop-filter: brightness(50%);
 }
 
-.lead {
-  margin: 12px 0 36px 0;
-  max-width: 750px;
-  font-weight: 600;
-  width: 80%;
-  color: white;
-}
-
 .img-container {
   background-image: url(img/mobile-vector.svg);
   background-position: center center;
@@ -246,7 +331,7 @@ footer {
 }
 
 /* --- FOOTER --- */
-.fa-instagram {
+i {
   margin-right: 5px;
 }
 
