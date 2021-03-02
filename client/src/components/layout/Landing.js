@@ -10,8 +10,8 @@ const Landing = () => {
       <section className='landing  dark-overlay'>
         <div>
           <div className='landing-content'>
-            <h1 className='x-large'>BaitScore</h1>
-            <p className='lead white'>
+            <h1 className='x-large light-font'>BaitScore</h1>
+            <p className='lead light-font'>
               BaitScore is a social network that brings all fishermen together
               and lets users share their favorite fishing stories, techniques
               and lures
