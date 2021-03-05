@@ -187,7 +187,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 10%;
+  padding: 30px 1.5%;
   height: 10vh;
 }
 
@@ -304,6 +304,12 @@ input:-webkit-autofill:active {
   color: var(--light-font);
 }
 
+/* --- MOBILE --- */
+@media screen and (max-width: 450px) {
+  .hide-sm {
+    display: none;
+  }
+}
 /* --- COMPONENT-SPECIFIC STYLING --- */
 /* --- LANDING PAGE --- */
 .landing {
