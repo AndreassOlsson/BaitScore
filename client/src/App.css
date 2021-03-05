@@ -219,13 +219,14 @@ footer {
 }
 
 .whole-screen {
-  height: 90vh;
+  min-height: 90vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 
 .abstract-background {
@@ -243,6 +244,7 @@ footer {
   align-items: center;
   background-color: var(--light-color);
   padding: 48px 48px;
+  z-index: 1;
 }
 
 form.form {
