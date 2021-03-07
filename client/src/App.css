@@ -58,7 +58,7 @@ h1 {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   letter-spacing: 1.3px;
   font-weight: 500;
 }
@@ -307,9 +307,13 @@ input:-webkit-autofill:active {
 }
 
 /* --- MOBILE --- */
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
   .hide-sm {
     display: none;
+  }
+  p,
+  a {
+    font-size: 1rem;
   }
 }
 /* --- COMPONENT-SPECIFIC STYLING --- */
@@ -357,6 +361,8 @@ i {
 }
 
 .banner {
+  margin: 5px 0;
   width: 100vw;
+  padding: 0 10px;
   background-color: var(--primary-color);
 }
