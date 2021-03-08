@@ -11,6 +11,9 @@ const ProfileSchema = new mongoose.Schema({
   age: {
     type: String,
   },
+  status: {
+    type: String,
+  },
   species: {
     type: String,
   },

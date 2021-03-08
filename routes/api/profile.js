@@ -50,6 +50,7 @@ router.post(
     const {
       city,
       age,
+      status,
       species,
       pbs,
       favoriteLure,
@@ -65,6 +66,7 @@ router.post(
     profileFields.user = req.user.id;
     if (city) profileFields.city = city;
     if (age) profileFields.age = age;
+    if (status) profileFields.status = status;
     if (favoriteLure) profileFields.favoriteLure = favoriteLure;
     if (bio) profileFields.bio = bio;
     if (species) {

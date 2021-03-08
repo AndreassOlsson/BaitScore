@@ -13,7 +13,7 @@ const Landing = ({ isAuthenticated }) => {
 
   return (
     <Fragment>
-      <section className='landing  dark-overlay'>
+      <section className='landing dark-overlay'>
         <div>
           <div className='landing-content'>
             <h1 className='x-large light-font'>BaitScore</h1>

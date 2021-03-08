@@ -74,6 +74,10 @@ footer {
   padding: 12px 0;
 }
 
+.pointer:hover {
+  cursor: pointer;
+}
+
 .light-font {
   color: var(--light-font);
 }
@@ -87,13 +91,21 @@ footer {
 .x-large {
   font-size: 3rem;
   letter-spacing: 0px;
-  margin: 0;
 }
 
 .large {
   font-size: 2.6rem;
   letter-spacing: 0px;
-  margin: 0;
+}
+
+small {
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.added-margin {
+  margin: 12px;
 }
 
 .dark-overlay {
@@ -158,7 +170,7 @@ footer {
 }
 
 .lead {
-  margin: 12px 0 36px 0;
+  margin: 10px;
   max-width: 750px;
   font-weight: 600;
   width: 80%;
@@ -221,12 +233,15 @@ footer {
 .whole-screen {
   min-height: 90vh;
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-size: cover;
   background-position: center;
   overflow: hidden;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .abstract-background {
@@ -245,6 +260,7 @@ footer {
   background-color: var(--light-color);
   padding: 48px 48px;
   z-index: 1;
+  margin: 24px 0;
 }
 
 form.form {
@@ -252,8 +268,10 @@ form.form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 12px;
 }
 
+select,
 input[type='text'],
 input[type='email'],
 input[type='password'],
@@ -262,9 +280,17 @@ input[type='password_confirm'] {
   border-bottom: 2px solid black;
   width: 320px;
   height: 40px;
-  margin: 6px 0;
+  margin: 8px 0;
   font-size: 18px;
   font-weight: 550;
+}
+
+textarea {
+  width: 320px;
+  height: 120px;
+  margin: 20px 0 0 0;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 input[type='submit'],
@@ -274,6 +300,10 @@ input[type='submit'],
   border-radius: 24px;
   font-size: 1.1rem;
   font-family: 550;
+}
+
+.hidden {
+  display: none;
 }
 
 ::placeholder {
@@ -343,6 +373,10 @@ input:-webkit-autofill:active {
   height: 100%;
   text-align: center;
   backdrop-filter: brightness(50%);
+}
+
+.landing-content .lead {
+  margin: 0 0 36px 0;
 }
 
 .img-container {

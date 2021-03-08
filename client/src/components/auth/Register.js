@@ -33,7 +33,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <section className='whole-screen abstract-background'>
+      <section className='whole-screen center-content abstract-background'>
         <div className='content-card shadow'>
           <h1 className='large'>Sign Up</h1>
           <p className='lead black'>
