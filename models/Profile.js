@@ -13,12 +13,13 @@ const ProfileSchema = new mongoose.Schema({
   },
   status: {
     type: String,
+    required: true,
   },
   species: {
-    type: String,
+    type: Array,
   },
   pbs: {
-    type: String,
+    type: Array,
   },
   favoriteLure: {
     type: String,

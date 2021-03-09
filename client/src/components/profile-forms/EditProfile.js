@@ -1,10 +1,15 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import { createProfile } from '../../actions/profile';
+import { createProfile, getCurrentProfile } from '../../actions/profile';
 
-const CreateProfile = ({ createProfile, history }) => {
+const EditProfile = ({
+  profile: { profile, loading },
+  createProfile,
+  getCurrentProfile,
+  history,
+}) => {
   const [formData, setFormData] = useState({
     city: '',
     age: '',
@@ -20,6 +25,26 @@ const CreateProfile = ({ createProfile, history }) => {
   });
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
+
+  useEffect(() => {
+    getCurrentProfile();
+
+    setFormData({
+      city: loading || !profile.city ? '' : profile.city,
+      age: loading || !profile.age ? '' : profile.age,
+      status: loading || !profile.status ? '' : profile.status,
+      species: loading || !profile.species ? '' : profile.species.join(','),
+      pbs: loading || !profile.pbs ? '' : profile.pbs.join(','),
+      favoriteLure:
+        loading || !profile.favoriteLure ? '' : profile.favoriteLure,
+      bio: loading || !profile.bio ? '' : profile.bio,
+      youtube: loading || !profile.social ? '' : profile.social.youtube,
+      twitter: loading || !profile.social ? '' : profile.social.twitter,
+      facebook: loading || !profile.social ? '' : profile.social.facebook,
+      instagram: loading || !profile.social ? '' : profile.social.instagram,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading]);
 
   const {
     city,
@@ -40,14 +65,14 @@ const CreateProfile = ({ createProfile, history }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    createProfile(formData, history);
+    createProfile(formData, history, true);
   };
 
   return (
     <Fragment>
       <section className='whole-screen center-content abstract-background'>
         <div className='content-card shadow'>
-          <h1 className='large'>Create your profile</h1>
+          <h1 className='large'>Edit your profile</h1>
           <p className='lead'>
             <i className='fas fa-user'></i>
             Add some information to make your profile stand out!
@@ -114,7 +139,7 @@ const CreateProfile = ({ createProfile, history }) => {
                 value={pbs}
                 onChange={(e) => onChange(e)}
               />
-              <small className='form-text'> Ex: 10kg, 1kg, 2kg</small>
+              <small className='form-text'>Ex: 10kg, 1kg, 2kg</small>
             </div>
             <div className='form-group'>
               <input
@@ -203,8 +228,16 @@ const CreateProfile = ({ createProfile, history }) => {
   );
 };
 
-CreateProfile.propTypes = {
+EditProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
 };
 
-export default connect(null, { createProfile })(withRouter(CreateProfile));
+const mapStateToProps = (state) => ({
+  profile: state.profile,
+});
+
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+  withRouter(EditProfile)
+);

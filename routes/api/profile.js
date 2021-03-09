@@ -29,7 +29,7 @@ router.get('/me', auth, async (req, res) => {
 });
 
 // @route   POST api/profile
-// @desc    Get current users profile
+// @desc    Create profile
 // @access  Private
 router.post(
   '/',
@@ -69,13 +69,13 @@ router.post(
     if (status) profileFields.status = status;
     if (favoriteLure) profileFields.favoriteLure = favoriteLure;
     if (bio) profileFields.bio = bio;
+
     if (species) {
       profileFields.species = species.split(',').map((specie) => specie.trim());
     }
     if (pbs) {
       profileFields.pbs = pbs.split(',').map((pb) => pb.trim());
     }
-    console.log(profileFields.species);
 
     // Build social object
     profileFields.social = {};

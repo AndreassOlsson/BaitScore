@@ -260,7 +260,7 @@ small {
   background-color: var(--light-color);
   padding: 48px 48px;
   z-index: 1;
-  margin: 24px 0;
+  margin: 48px 0;
 }
 
 form.form {
