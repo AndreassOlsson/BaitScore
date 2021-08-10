@@ -56,9 +56,13 @@ const Login = ({ login, isAuthenticated }) => {
                 required
               />
             </div>
-            <input type='submit' className='btn btn-primary' value='Login' />
+            <input
+              type='submit'
+              className='my-2 btn btn-primary'
+              value='Login'
+            />
           </form>
-          <p className='my-1 black'>
+          <p className='black'>
             Don´t have an account?{' '}
             <Link to='/register' className='link-primary'>
               Sign up

@@ -12,17 +12,17 @@ const User = require('../../models/User');
 // @access  Private
 router.post(
   '/',
-  [auth, check('text', 'text is required').not().isEmpty()],
+  [auth, [check('text', 'text is required').not().isEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array() });
     }
 
     try {
       const user = await User.findById(req.user.id).select('-password');
 
-      const newPost = await new Post({
+      const newPost = new Post({
         text: req.body.text,
         name: user.name,
         avatar: user.avatar,
@@ -58,14 +58,15 @@ router.get('/', auth, async (req, res) => {
 router.get('/:id', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-    res.json(post);
 
     if (!post) {
       return res.status(404).json({ msg: 'Post not found' });
     }
+
+    res.json(post);
   } catch (err) {
     console.error(err);
-    if (err.kind === 'ObjectId') {
+    if (err.name === 'CastError') {
       return res.status(404).json({ msg: 'Post not found' });
     }
     res.status(500).send('Server error');
@@ -89,7 +90,7 @@ router.delete('/:id', auth, async (req, res) => {
     res.json({ msg: 'Post removed' });
   } catch (err) {
     console.error(err);
-    if (err.kind === 'ObjectId') {
+    if (err.name === 'CastError') {
       return res.status(404).json({ msg: 'Post not found' });
     }
     res.status(500).send('Server error');
